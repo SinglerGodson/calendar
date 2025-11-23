@@ -7,8 +7,8 @@ from src.fill_ppt import fill_ppt
 
 # os.listdir('./')
 
-user_input_path = input("请输入文件路径: ")
-# user_input_path = '/Users/mac/Documents/学校行政/校行事历/2025-2026学年第一学期第十一周、第十二周行事历.xlsx'
+file_name = input("请输入文件名称: ")
+user_input_path = '/Users/mac/Documents/学校行政/校行事历/' + file_name + '.xlsx'
 df = pd.read_excel(user_input_path, 0)
 
 
@@ -117,7 +117,7 @@ basename_no_ext, ext = os.path.splitext(basename)
 
 # 替换扩展名
 # 组合新的完整文件名
-new_filename_with_path = os.path.join(dirname, basename_no_ext + ".pptx")
+new_filename_with_path = os.path.join(dirname, 'PPT', basename_no_ext + ".pptx")
 
 
 fill_ppt(calendars, new_filename_with_path)
