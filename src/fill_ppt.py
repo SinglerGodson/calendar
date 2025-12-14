@@ -93,16 +93,26 @@ def copy_shape_to_slide(source_shape, target_slide, calendar):
 
                 if i == 1 and j == 3 and target_run:
                     target_run.text = calendar['content']
-                    text_len = len(target_run.text) / 2
+                    lines = target_run.text.count('\n')
 
-                    if text_len < 40:
+                    if lines < 6:
                         target_run.font.size = Pt(60)
-                    elif 40 <= text_len < 100:
+                    elif 6 <= lines < 9:
                         target_run.font.size = Pt(40)
-                    elif 100 <= text_len < 200:
-                        target_run.font.size = Pt(30)
-                    elif 200 <= text_len < 300:
-                        target_run.font.size = Pt(20)
+                    elif 9 <= lines < 12:
+                        target_run.font.size = Pt(32)
+                    else:
+                        target_run.font.size = Pt(24)
+
+                    # text_len = len(target_run.text) / 2
+                    # if text_len < 40:
+                    #     target_run.font.size = Pt(60)
+                    # elif 40 <= text_len < 100:
+                    #     target_run.font.size = Pt(40)
+                    # elif 100 <= text_len < 200:
+                    #     target_run.font.size = Pt(30)
+                    # elif 200 <= text_len < 300:
+                    #     target_run.font.size = Pt(20)
 
 
                 # 复制文本格式
